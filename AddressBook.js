@@ -150,6 +150,9 @@ function Main()
     console.log("-----------------Searching by city---------------");
     let cityArray = SearchByCityAndState("Jabalpur", "MadhyaPradesh");
     cityArray.forEach(contact=>console.log(contact.toString()));
+    //Get contacts by city and state
+    console.log("-----------------Getting contacts by city---------------");
+    cityArray.forEach(contact=>console.log(contact.firstName + " " + contact.lastName + " " + contact.city));
 }
 let AddressBook = new Array();
 Main();

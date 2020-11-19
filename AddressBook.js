@@ -163,6 +163,12 @@ function Main()
     let cities = new Array();
     AddressBook.forEach(contact=>{if(!cities.includes(contact.city)) cities.push(contact.city)});
     cities.forEach(GetCityCount);
+    //Sort By Names
+    console.log("-----------------Sorting Array By Names---------------");
+    let sortedArray = new Array();
+    AddressBook.forEach(contact => sortedArray.push(contact.toString()));
+    sortedArray.sort();
+    console.log(sortedArray);
 }
 let AddressBook = new Array();
 Main();

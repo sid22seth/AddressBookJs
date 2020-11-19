@@ -84,3 +84,19 @@ class contact
         + " State: " + this.state + " Zipcode: " + this.zip + " Phone Number: " + this.phoneNumber + " email: " + this.email; 
     }
 }
+function AddContact(firstName, lastName, address, city, state, zip, phoneNumber, email)
+{
+    let newcontact = new contact(firstName, lastName, address, city, state, zip, phoneNumber, email);
+    AddressBook.push(newcontact);
+}
+function Main()
+{
+    console.log("Welcome to address book");
+    AddContact("Siddhi","Seth","GopalVihar","Jabalpur","MadhyaPradesh","562562","8596585695","siddhi@gmail.com");
+    AddContact("Samriddhi","Seth","GopalVihar","Jabalpur","MadhyaPradesh","562562","8596856695","samriddhi@gmail.com");
+    AddContact("Prashant","Seth","GopalVihar","Jabalpur","MadhyaPradesh","562562","8596584753","prashant@gmail.com");
+}
+let AddressBook = new Array();
+Main();
+AddressBook.forEach(contact=>console.log(contact.toString()));
+

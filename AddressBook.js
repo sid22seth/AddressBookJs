@@ -16,42 +16,66 @@ class contact
     get firstName(){return this._firstName;}
     set firstName(firstName)
     {
-        this._firstName= firstName;
+        let nameRegex= RegExp('^[A-Z]{1}[a-z]{2,}$');
+        if(nameRegex.test(firstName))
+            this._firstName= firstName;
+        else throw "Invalid firstname";
     }
     get lastName(){return this._lastName;}
     set lastName(lastName)
     {
-        this._lastName= lastName;
+        let nameRegex= RegExp('^[A-Z]{1}[a-z]{2,}$');
+        if(nameRegex.test(lastName))
+            this._lastName= lastName;
+        else throw "Invalid lastname";
     }
     get address(){return this._address;}
     set address(address)
     {
-        this._address= address;
+        let addressRegex= RegExp('^[A-Za-z0-9]{4,}$');
+        if(addressRegex.test(address))
+            this._address= address;
+        else throw "Invalid address";
     }
     get city(){return this._city;}
     set city(city)
     {
-        this._city= city;
+        let cityRegex= RegExp('^[A-Za-z]{4,}$');
+        if(cityRegex.test(city))
+            this._city= city;
+        else throw "Invalid city";
     }
     get state(){return this._state;}
     set state(state)
     {
-        this._state= state;
+        let stateRegex= RegExp('^[A-Za-z]{4,}$');
+        if(stateRegex.test(state))
+            this._state= state;
+        else throw "Invalid state";
     }
     get zip(){return this._zip;}
     set zip(zip)
     {
-        this._zip= zip;
+        let zipRegex= RegExp('^[0-9]{3}[ ]?[0-9]{3}$');
+        if(zipRegex.test(zip))
+            this._zip= zip;
+        else throw "Invalid zip";
     }
     get phoneNumber(){return this._phoneNumber;}
     set phoneNumber(phoneNumber)
     {
-        this._phoneNumber= phoneNumber;
+        let phoneNumberRegex= RegExp('^([0-9]{2}[ ])?[6-9]{1}[0-9]{9}$');
+        if(phoneNumberRegex.test(phoneNumber))
+            this._phoneNumber= phoneNumber;
+        else throw "Invalid phone number";   
     }
     get email(){return this._email;}
     set email(email)
     {
-        this._email= email;
+        let emailRegex= RegExp('^[a-zA-Z0-9]+([-.+_#$][a-zA-Z0-9]+)*[@][a-zA-Z0-9]+[.][a-zA-Z]{2,3}([.][a-zA-Z]{2})?$')
+        if(emailRegex.test(email))
+            this._email = email;
+        else throw "Invalid Email";
     }
     //To string method for displaying contacts
     toString()

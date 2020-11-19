@@ -99,11 +99,18 @@ function AddContact(firstName, lastName, address, city, state, zip, phoneNumber,
 function Main()
 {
     console.log("Welcome to address book");
+    //Adding contacts
+    console.log("-------------Adding contact-----------------");
     AddContact("Siddhi","Seth","GopalVihar","Jabalpur","MadhyaPradesh","562562","8596585695","siddhi@gmail.com");
     AddContact("Samriddhi","Seth","GopalVihar","Jabalpur","MadhyaPradesh","562562","8596856695","samriddhi@gmail.com");
     AddContact("Prashant","Seth","GopalVihar","Jabalpur","MadhyaPradesh","562562","8596584753","prashant@gmail.com");
+    //Printing Array
+    AddressBook.forEach(contact=>console.log(contact.toString()));
+    //Editing Contact by name
+    console.log("-------------Editing contact-----------------");
+    AddressBook.filter(contact=>contact.firstName=="Siddhi"&& contact.lastName =="Seth").forEach(contact=>{contact.address ="DamohNaka"; contact.city="Bangalore"; contact.state="Karnataka"});
+    AddressBook.forEach(contact=>console.log(contact.toString()));
 }
 let AddressBook = new Array();
 Main();
-AddressBook.forEach(contact=>console.log(contact.toString()));
 

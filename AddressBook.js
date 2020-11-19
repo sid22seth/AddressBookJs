@@ -169,6 +169,34 @@ function Main()
     AddressBook.forEach(contact => sortedArray.push(contact.toString()));
     sortedArray.sort();
     console.log(sortedArray);
+    //Sorting by city
+    console.log("-----------------Sorting Array By City---------------");
+    AddressBook.sort(contact => {
+        let a = contact.city
+        let b = contact.city
+    if(a>b) return 1;
+    if(b>a) return -1;
+    return 0;})
+    AddressBook.forEach(contact => console.log(contact.toString()));
+    //Sorting by state
+    console.log("-----------------Sorting Array By state---------------");
+    AddressBook.sort(contact => {
+        let a = contact.state
+        let b = contact.state
+    if(a>b) return 1;
+    if(b>a) return -1;
+    return 0;})
+    AddressBook.forEach(contact => console.log(contact.toString()));
+    //Sorting by city
+    console.log("-----------------Sorting Array By Zip---------------");
+    AddressBook.sort(contact => {
+        let a = contact.zip
+        let b = contact.zip
+    if(a>b) return 1;
+    if(b>a) return -1;
+    return 0;})
+    AddressBook.forEach(contact => console.log(contact.toString()));
+
 }
 let AddressBook = new Array();
 Main();

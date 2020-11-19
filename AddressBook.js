@@ -96,6 +96,20 @@ function AddContact(firstName, lastName, address, city, state, zip, phoneNumber,
         console.error(e);
     }
 }
+function EditContact(firstName, lastName, address, city, state)
+{
+    AddressBook.filter(contact=>contact.firstName== firstName && contact.lastName == lastName ).forEach(contact=>{contact.address = address ; contact.city= city ; contact.state= state});
+}
+function DeleteContact(firstName, lastName)
+{
+    for(let index = 0; index < AddressBook.length; index++)
+    {
+        if(AddressBook[index].firstName == firstName && AddressBook[index].lastName==lastName)
+        {
+            AddressBook.splice(index,1);
+        }
+    }   
+}
 function Main()
 {
     console.log("Welcome to address book");
@@ -108,9 +122,19 @@ function Main()
     AddressBook.forEach(contact=>console.log(contact.toString()));
     //Editing Contact by name
     console.log("-------------Editing contact-----------------");
-    AddressBook.filter(contact=>contact.firstName=="Siddhi"&& contact.lastName =="Seth").forEach(contact=>{contact.address ="DamohNaka"; contact.city="Bangalore"; contact.state="Karnataka"});
+    EditContact("Siddhi", "Seth", "DamohNaka", "Bangalore", "Karnataka");
     AddressBook.forEach(contact=>console.log(contact.toString()));
+    //Deleting contact
+    console.log("-------------Deleting contact-----------------");
+    DeleteContact("Siddhi", "Seth");
+    AddressBook.forEach(contact=>console.log(contact.toString()));
+    //Get Number of contacts
+    function Count(count, contact)
+    {
+        return ++count;
+    }
+    let contactCount= AddressBook.reduce(Count, 0);
+    console.log("Number of contact: " + contactCount);
 }
 let AddressBook = new Array();
 Main();
-

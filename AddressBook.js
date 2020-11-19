@@ -120,6 +120,11 @@ function SearchByCityAndState(city, state)
     let sortByCity = AddressBook.filter(contact=>contact.city == city && contact.state == state);
     return sortByCity;
 }
+function GetCityCount(city)
+{
+    let cityArray = AddressBook.filter(contact=>contact.city == city);
+    console.log(city + "  " + cityArray.length);
+}
 function Main()
 {
     console.log("Welcome to address book");
@@ -136,7 +141,7 @@ function Main()
     AddressBook.forEach(contact=>console.log(contact.toString()));
     //Deleting contact
     console.log("-------------Deleting contact-----------------");
-    DeleteContact("Siddhi", "Seth");
+    DeleteContact("Prashant", "Seth");
     AddressBook.forEach(contact=>console.log(contact.toString()));
     //Get Number of contacts
     function Count(count, contact)
@@ -153,6 +158,11 @@ function Main()
     //Get contacts by city and state
     console.log("-----------------Getting contacts by city---------------");
     cityArray.forEach(contact=>console.log(contact.firstName + " " + contact.lastName + " " + contact.city));
+    //Count by city
+    console.log("-----------------Contact count by city---------------");
+    let cities = new Array();
+    AddressBook.forEach(contact=>{if(!cities.includes(contact.city)) cities.push(contact.city)});
+    cities.forEach(GetCityCount);
 }
 let AddressBook = new Array();
 Main();

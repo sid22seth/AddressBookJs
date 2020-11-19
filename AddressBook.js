@@ -89,7 +89,12 @@ function AddContact(firstName, lastName, address, city, state, zip, phoneNumber,
     try
     {
         let newcontact = new contact(firstName, lastName, address, city, state, zip, phoneNumber, email);
-        AddressBook.push(newcontact);    
+        if(AddressBook.find(person => person.firstName == newcontact.firstName && person.lastName==newcontact.lastName))
+            throw "Details you are entering already exists";
+        else
+        {
+            AddressBook.push(newcontact);        
+        }
     }
     catch(e)
     {
@@ -118,6 +123,7 @@ function Main()
     AddContact("Siddhi","Seth","GopalVihar","Jabalpur","MadhyaPradesh","562562","8596585695","siddhi@gmail.com");
     AddContact("Samriddhi","Seth","GopalVihar","Jabalpur","MadhyaPradesh","562562","8596856695","samriddhi@gmail.com");
     AddContact("Prashant","Seth","GopalVihar","Jabalpur","MadhyaPradesh","562562","8596584753","prashant@gmail.com");
+    AddContact("Siddhi","Seth","GopalVihar","Jabalpur","MadhyaPradesh","562562","8596585695","siddhi@gmail.com");
     //Printing Array
     AddressBook.forEach(contact=>console.log(contact.toString()));
     //Editing Contact by name

@@ -115,6 +115,11 @@ function DeleteContact(firstName, lastName)
         }
     }   
 }
+function SearchByCityAndState(city, state)
+{
+    let sortByCity = AddressBook.filter(contact=>contact.city == city && contact.state == state);
+    return sortByCity;
+}
 function Main()
 {
     console.log("Welcome to address book");
@@ -123,7 +128,6 @@ function Main()
     AddContact("Siddhi","Seth","GopalVihar","Jabalpur","MadhyaPradesh","562562","8596585695","siddhi@gmail.com");
     AddContact("Samriddhi","Seth","GopalVihar","Jabalpur","MadhyaPradesh","562562","8596856695","samriddhi@gmail.com");
     AddContact("Prashant","Seth","GopalVihar","Jabalpur","MadhyaPradesh","562562","8596584753","prashant@gmail.com");
-    AddContact("Siddhi","Seth","GopalVihar","Jabalpur","MadhyaPradesh","562562","8596585695","siddhi@gmail.com");
     //Printing Array
     AddressBook.forEach(contact=>console.log(contact.toString()));
     //Editing Contact by name
@@ -139,8 +143,13 @@ function Main()
     {
         return ++count;
     }
+    console.log("-------------contact count-----------------");
     let contactCount= AddressBook.reduce(Count, 0);
     console.log("Number of contact: " + contactCount);
+    //Get contacts of a city and state
+    console.log("-----------------Searching by city---------------");
+    let cityArray = SearchByCityAndState("Jabalpur", "MadhyaPradesh");
+    cityArray.forEach(contact=>console.log(contact.toString()));
 }
 let AddressBook = new Array();
 Main();

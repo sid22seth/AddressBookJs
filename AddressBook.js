@@ -86,8 +86,15 @@ class contact
 }
 function AddContact(firstName, lastName, address, city, state, zip, phoneNumber, email)
 {
-    let newcontact = new contact(firstName, lastName, address, city, state, zip, phoneNumber, email);
-    AddressBook.push(newcontact);
+    try
+    {
+        let newcontact = new contact(firstName, lastName, address, city, state, zip, phoneNumber, email);
+        AddressBook.push(newcontact);    
+    }
+    catch(e)
+    {
+        console.error(e);
+    }
 }
 function Main()
 {

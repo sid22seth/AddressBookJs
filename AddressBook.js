@@ -84,6 +84,7 @@ class contact
         + " State: " + this.state + " Zipcode: " + this.zip + " Phone Number: " + this.phoneNumber + " email: " + this.email; 
     }
 }
+//function to add contact
 function AddContact(firstName, lastName, address, city, state, zip, phoneNumber, email)
 {
     try
@@ -101,6 +102,7 @@ function AddContact(firstName, lastName, address, city, state, zip, phoneNumber,
         console.error(e);
     }
 }
+//function to edit existing contact
 function EditContact(firstName, lastName, address, city, state)
 {
     AddressBook.filter(contact=>contact.firstName== firstName && contact.lastName == lastName ).forEach(contact=>{contact.address = address ; contact.city= city ; contact.state= state});
@@ -115,16 +117,19 @@ function DeleteContact(firstName, lastName)
         }
     }   
 }
+//function to search contact by city and state
 function SearchByCityAndState(city, state)
 {
     let sortByCity = AddressBook.filter(contact=>contact.city == city && contact.state == state);
     return sortByCity;
 }
+//function to get contact count per city
 function GetCityCount(city)
 {
     let cityArray = AddressBook.filter(contact=>contact.city == city);
     console.log(city + "  " + cityArray.length);
 }
+//main function for execution
 function Main()
 {
     console.log("Welcome to address book");
